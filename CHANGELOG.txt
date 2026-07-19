@@ -1,0 +1,16 @@
+Hundehafen Hamburg – Version 1.2.2
+
+Änderung:
+- Das Bild im Bereich „Beständige Hundegruppe“ wurde testweise ersetzt.
+- Verwendet wird jetzt das Foto mit den beiden kuschelnden Hunden.
+
+Unverändert:
+- HTML
+- CSS
+- JavaScript
+- Layout und Smartphone-Darstellung
+
+Für GitHub:
+Den Inhalt dieses Versionsordners in den lokalen Repository-Ordner
+„Hundehafen-Hamburg“ kopieren und vorhandene Dateien ersetzen.
+Anschließend in GitHub Desktop committen und „Push origin“ wählen.
