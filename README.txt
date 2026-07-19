@@ -1,19 +1,12 @@
-HUNDEHAFEN HAMBURG – VERSION 0.5
+Hundehafen Hamburg – Website Version 1.2
 
-STARTEN
-1. ZIP-Datei entpacken.
-2. Den Ordner Hundehafen_Hamburg_v0.5 öffnen.
-3. index.html doppelklicken.
+Enthalten:
+- Hauptseite
+- Impressum
+- Datenschutzerklärung
+- SEO- und Social-Media-Metadaten
+- robots.txt und sitemap.xml
+- 404-Seite
+- keine extern geladenen Schriftarten
 
-NEU IN VERSION 0.5
-- Hero-Logo auf einem transparent-weißen Kreis für bessere Sichtbarkeit
-- Pfeil nach oben statt „Start“ in der Menüleiste
-- Bildausschnitt der beständigen Hundegruppe optimiert
-- Bildwechsel langsamer und weicher abgestimmt
-- Mobilansicht und reduzierte Animationen berücksichtigt
-- Kontaktbereich unverändert gelassen
-
-NOCH VOR VERÖFFENTLICHUNG
-- Impressum ergänzen
-- Datenschutzerklärung ergänzen
-- finale Prüfung auf iPhone und Desktop
+Veröffentlichung: Inhalt dieses Ordners direkt in das GitHub-Repository kopieren.

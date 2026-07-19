@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hundehafenhamburg.github.io/Hundehafen-Hamburg/sitemap.xml
