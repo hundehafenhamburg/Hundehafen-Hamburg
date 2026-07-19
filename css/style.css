@@ -850,3 +850,28 @@ h3 {
   .legal-brand span { display: none; }
   .legal-main { width: calc(100% - 24px); padding-top: 52px; }
 }
+
+
+@media (max-width: 768px){
+  .hero{
+    min-height:100svh;
+  }
+  .hero-content{
+    padding-top:72px;
+    padding-bottom:48px;
+  }
+  h1{
+    font-size:clamp(2.2rem,10vw,3.4rem);
+    line-height:1.12;
+  }
+  .hero-subline{
+    font-size:1.1rem;
+  }
+  .hero-text{
+    font-size:1rem;
+    max-width:100%;
+  }
+  .card img{
+    object-position:center 38%;
+  }
+}
