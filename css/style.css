@@ -875,3 +875,12 @@ h3 {
     object-position:center 38%;
   }
 }
+
+
+/* Versteckter Notizzugang im Footer – Version 1.3 */
+#footer-secret-logo {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}

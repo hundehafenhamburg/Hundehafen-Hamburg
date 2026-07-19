@@ -1,0 +1,33 @@
+HUNDEHAFEN WEBSITE – UPDATE 1.3
+
+Enthalten:
+- Versteckter Zugang über das vorhandene Logo unten links
+- Logo auf dem iPhone 2,5 Sekunden gedrückt halten
+- Am PC alternativ Doppelklick auf das Footer-Logo
+- Mobile Notizseite unter /notiz/
+- PIN-Abfrage (Test-PIN: 1111)
+- Notizseite kann auf dem iPhone zum Home-Bildschirm hinzugefügt werden
+
+INSTALLATION
+1. Den Inhalt dieses Ordners in den Ordner des GitHub-Repositories kopieren.
+2. Vorhandene Dateien ersetzen.
+3. In GitHub Desktop Commit und Push ausführen.
+4. Website neu laden.
+5. Ganz unten das Logo 2,5 Sekunden gedrückt halten.
+
+IPHONE
+1. Notizseite in Safari öffnen.
+2. Teilen antippen.
+3. „Zum Home-Bildschirm“ wählen.
+
+WICHTIG
+Diese erste Testversion speichert Notizen nur lokal auf dem iPhone.
+Sie sendet noch nicht an Hundehafen Digital. Dafür wird im nächsten Schritt
+ein kleiner Online-Speicher angebunden und anschließend die Synchronisation
+der Desktop-App erweitert.
+
+PIN ÄNDERN
+Datei notiz/app.js öffnen.
+Ganz oben steht:
+const APP_PIN = '1111';
+Die Zahl zwischen den Anführungszeichen ändern.
