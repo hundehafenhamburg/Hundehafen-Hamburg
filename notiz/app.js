@@ -1,5 +1,6 @@
-const APP_PIN = '1111'; // Hier kann die PIN vor Veröffentlichung geändert werden.
-const STORAGE_KEY = 'hundehafen_testnotizen_v1';
+const APP_PIN = '1111';
+const STORAGE_KEY = 'hundehafen_gesendete_notizen_v2';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby-ij_y80lGwyyaschx3qcscLnH3rRbZtwhtoSc8FPTP7wLHL6_DSiJqfPO2gnLgjI/exec';
 
 const pinView = document.getElementById('pin-view');
 const noteView = document.getElementById('note-view');
@@ -8,8 +9,10 @@ const pinInput = document.getElementById('pin');
 const pinError = document.getElementById('pin-error');
 const noteForm = document.getElementById('note-form');
 const saveMessage = document.getElementById('save-message');
+const errorMessage = document.getElementById('send-error');
 const savedNotes = document.getElementById('saved-notes');
 const clearNotes = document.getElementById('clear-notes');
+const submitButton = noteForm.querySelector('button[type="submit"]');
 
 function unlock() {
   pinView.hidden = true;
@@ -45,7 +48,7 @@ function renderNotes() {
   const notes = readNotes();
   savedNotes.innerHTML = '';
   if (!notes.length) {
-    savedNotes.innerHTML = '<p class="empty">Noch keine Testnotiz gespeichert.</p>';
+    savedNotes.innerHTML = '<p class="empty">Noch keine Notiz gesendet.</p>';
     return;
   }
   notes.slice().reverse().forEach(item => {
@@ -62,26 +65,50 @@ function renderNotes() {
   });
 }
 
-noteForm.addEventListener('submit', event => {
+noteForm.addEventListener('submit', async event => {
   event.preventDefault();
+  saveMessage.hidden = true;
+  errorMessage.hidden = true;
+
   const data = new FormData(noteForm);
-  const notes = readNotes();
-  notes.push({
-    id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
-    subject: String(data.get('subject')).trim(),
-    note: String(data.get('note')).trim(),
-    createdAt: new Date().toISOString()
-  });
-  writeNotes(notes);
-  noteForm.reset();
-  saveMessage.hidden = false;
-  renderNotes();
-  window.setTimeout(() => { saveMessage.hidden = true; }, 3500);
-  document.getElementById('subject').focus();
+  const subject = String(data.get('subject') || '').trim();
+  const note = String(data.get('note') || '').trim();
+  if (!subject || !note) return;
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Wird gesendet …';
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: new URLSearchParams({ betreff: subject, notiz: note })
+    });
+
+    const notes = readNotes();
+    notes.push({
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+      subject,
+      note,
+      createdAt: new Date().toISOString()
+    });
+    writeNotes(notes);
+    noteForm.reset();
+    saveMessage.hidden = false;
+    renderNotes();
+    window.setTimeout(() => { saveMessage.hidden = true; }, 4000);
+    document.getElementById('subject').focus();
+  } catch (error) {
+    errorMessage.hidden = false;
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Notiz senden';
+  }
 });
 
 clearNotes.addEventListener('click', () => {
-  if (confirm('Alle lokal gespeicherten Testnotizen löschen?')) {
+  if (confirm('Die Anzeige der gesendeten Notizen auf diesem Gerät löschen?')) {
     localStorage.removeItem(STORAGE_KEY);
     renderNotes();
   }

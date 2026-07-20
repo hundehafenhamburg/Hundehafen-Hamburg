@@ -42,14 +42,15 @@
         <label for="note">Notiz</label>
         <textarea id="note" name="note" rows="8" maxlength="2000" placeholder="Was soll später im Büro erinnert werden?" required></textarea>
 
-        <button type="submit">Testnotiz speichern</button>
-        <p class="hint">Diese erste Version speichert nur auf diesem iPhone. Die Übertragung zum Hundebüro folgt im nächsten Schritt.</p>
-        <p id="save-message" class="message success" hidden>Notiz wurde auf diesem Gerät gespeichert.</p>
+        <button type="submit">Notiz senden</button>
+        <p class="hint">Die Notiz wird direkt an Hundehafen Digital übertragen und zusätzlich auf diesem Gerät angezeigt.</p>
+        <p id="save-message" class="message success" hidden>Notiz wurde erfolgreich gesendet.</p>
+        <p id="send-error" class="message error" hidden>Senden fehlgeschlagen. Bitte Internetverbindung prüfen und erneut versuchen.</p>
       </form>
 
       <div class="saved-area">
         <div class="saved-head">
-          <h2>Gespeicherte Testnotizen</h2>
+          <h2>Gesendete Notizen</h2>
           <button id="clear-notes" class="text-button" type="button">Alle löschen</button>
         </div>
         <div id="saved-notes"></div>
