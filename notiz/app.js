@@ -1,6 +1,6 @@
 const APP_PIN = '1111';
 const STORAGE_KEY = 'hundehafen_gesendete_notizen_v2';
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby-ij_y80lGwyyaschx3qcscLnH3rRbZtwhtoSc8FPTP7wLHL6_DSiJqfPO2gnLgjI/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDCRSDDN7Wd1NmuSU_U-kyaMiyGcfinKW1QD90Vs2XlQCFJgi_V_d5if_0IKUtc0XG/exec';
 
 const pinView = document.getElementById('pin-view');
 const noteView = document.getElementById('note-view');
